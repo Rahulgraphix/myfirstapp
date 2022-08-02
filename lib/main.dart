@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/Screen/home.dart';
 import 'package:myapp/Screen/loin_page.dart';
 import 'package:myapp/util/routes.dart';
+import 'package:myapp/widgets/my_theame.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,14 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-        // fontFamily: GoogleFonts.lato().fontFamily,
-      ),
-      darkTheme: ThemeData(brightness: Brightness.dark),
+      debugShowCheckedModeBanner: false, //for debug
+      theme: MyTheame.lightTheame(context),
+
       initialRoute: "/",
       routes: {
-        "/": (context) => LoginPage(),
+        "/": (context) => Homepage(),
         MyRoutes.homeRoute: (context) => Homepage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
       },
